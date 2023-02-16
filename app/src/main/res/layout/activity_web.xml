@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.act.WebActivity">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivBack"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_gravity="center_vertical"
+        android:paddingStart="9dp"
+        android:paddingTop="9dp"
+        android:paddingEnd="9dp"
+        android:paddingBottom="9dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/common_back_arrow" />
+
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</androidx.appcompat.widget.LinearLayoutCompat>

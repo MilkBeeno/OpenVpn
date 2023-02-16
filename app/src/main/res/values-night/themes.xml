@@ -1,0 +1,7 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Theme.OpenVpn" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowBackground">@color/app_background</item>
+    </style>
+</resources>

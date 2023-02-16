@@ -1,0 +1,38 @@
+<resources>
+    <!-- Facebook 推广相关 -->
+    <string name="facebook_app_id">911156690023455</string>
+    <string name="facebook_client_token">e1cad8f2a28ef81b3d92aaf4c2ec7a07</string>
+    <string name="fb_login_protocol_scheme">fb911156690023455</string>
+    <string name="app_name">Open VPN - SafeConnect</string>
+    <!--启动页面翻译-->
+    <string name="launch_tip"><![CDATA[FREE & FAST]]></string>
+    <string name="launch_start">Start</string>
+    <string name="launch_privacy">privacy policy</string>
+    <string name="launch_privacy_content">you should agree with \"privacy policy\"</string>
+    <string name="launch_privacy_agreement">Please read the Privacy Policy first and tick it!</string>
+    <!--后天回到前台页面翻译-->
+    <string name="back_stack_content">connected and fetch server list …</string>
+    <!--主页面翻译-->
+    <string name="main_disconnect">Connect</string>
+    <string name="main_connected">Disconnect</string>
+    <string name="main_connecting">Connecting</string>
+    <string name="main_network_tip">Network type</string>
+    <!--关于我们页面翻译-->
+    <string name="about_us_title">About Us</string>
+    <string name="dialog_wait">Please Wait</string>
+    <string name="switch_node_title">Change Sever</string>
+    <string name="common_auto_select">Auto Select</string>
+    <string name="common_loading">Loading…</string>
+    <string name="result_title">Result Page</string>
+    <string name="result_vpn_name_tage">Vpn server</string>
+    <string name="result_vpn_ping">Speed</string>
+    <string name="result_connected">Connected</string>
+    <string name="result_failure">Disconnected</string>
+    <string name="main_connect_failure">Connect Failure</string>
+    <string name="dialog_open_notification_title">Open notification permission</string>
+    <string name="dialog_open_notification_content">To improve connection stability please turn on notifications</string>
+    <string name="dialog_open_notification_confirm">Confirm</string>
+    <string name="main_connect_now">Connect now</string>
+    <string name="main_disconnect_now">Disconnect now</string>
+    <string name="common_wait">Please wait</string>
+</resources>
