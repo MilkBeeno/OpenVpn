@@ -7,7 +7,7 @@ import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.FullScreenContentCallback
 import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.appopen.AppOpenAd
-import com.milk.open.ad.unitId.AppOpenAdUnitId
+import com.milk.open.ad.unitId.AppOpenAdCode
 import com.milk.simple.log.Logger
 
 class AppOpenAd {
@@ -38,7 +38,7 @@ class AppOpenAd {
                 Logger.d("AppOpenAd：${loadAdError.message}", tag)
             }
         }
-        AppOpenAd.load(context, AppOpenAdUnitId.value, request, callback)
+        AppOpenAd.load(context, AppOpenAdCode.value, request, callback)
     }
 
     fun show(

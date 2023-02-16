@@ -11,7 +11,7 @@ import com.milk.open.R
 import com.milk.open.ad.unitId.NativeAdCode
 import com.milk.simple.ktx.gone
 
-class ResultNativeAdView : BaseNativeAdView {
+class MainVpnNativeAdView : BaseNativeAdView {
     private var loadFailureListener: ((String) -> Unit)? = null
     private var loadSuccessListener: (() -> Unit)? = null
     private var clickListener: (() -> Unit)? = null
@@ -23,7 +23,7 @@ class ResultNativeAdView : BaseNativeAdView {
     init {
         val inflater =
             context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-        inflater.inflate(R.layout.native_ad_view_result, this)
+        inflater.inflate(R.layout.native_ad_view_main, this)
     }
 
     fun setLoadFailureRequest(request: (String) -> Unit) {
@@ -42,6 +42,7 @@ class ResultNativeAdView : BaseNativeAdView {
         val adLoader = AdLoader.Builder(context, NativeAdCode.value)
             .forNativeAd { nativeAd ->
                 setNativeAd(nativeAd)
+                mediaView?.gone()
                 secondaryView?.gone()
                 ratingBar?.gone()
             }

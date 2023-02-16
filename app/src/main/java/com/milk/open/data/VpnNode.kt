@@ -6,7 +6,7 @@ import com.milk.simple.ktx.gone
 import com.milk.simple.ktx.visible
 import com.milk.open.R
 import com.milk.open.databinding.ItemSwitchNodeBinding
-import com.milk.open.media.ImageLoader
+import com.milk.open.media.PictureLoader
 
 class VpnNode : ItemBind {
     var nodeId: Long = 0
@@ -24,7 +24,7 @@ class VpnNode : ItemBind {
             else
                 R.drawable.shape_switch_node
         )
-        ImageLoader.Builder()
+        PictureLoader.Builder()
             .request(areaImage)
             .target(binding.ivNodeImage)
             .build()

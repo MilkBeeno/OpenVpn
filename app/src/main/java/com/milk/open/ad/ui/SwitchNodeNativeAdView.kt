@@ -8,13 +8,13 @@ import com.google.android.gms.ads.AdLoader
 import com.google.android.gms.ads.AdRequest
 import com.google.android.gms.ads.LoadAdError
 import com.milk.open.R
-import com.milk.open.ad.unitId.NativeAdUnitId
+import com.milk.open.ad.unitId.NativeAdCode
 import com.milk.simple.ktx.gone
 
-class SwitchNodeNativeAdView : NativeAdView {
-    private var loadFailureRequest: ((String) -> Unit)? = null
-    private var loadSuccessRequest: (() -> Unit)? = null
-    private var clickRequest: (() -> Unit)? = null
+class SwitchNodeNativeAdView : BaseNativeAdView {
+    private var loadFailureListener: ((String) -> Unit)? = null
+    private var loadSuccessListener: (() -> Unit)? = null
+    private var clickListener: (() -> Unit)? = null
 
     constructor(ctx: Context) : super(ctx)
     constructor(ctx: Context, attrs: AttributeSet?) : super(ctx, attrs)
@@ -27,19 +27,19 @@ class SwitchNodeNativeAdView : NativeAdView {
     }
 
     fun setLoadFailureRequest(request: (String) -> Unit) {
-        loadFailureRequest = request
+        loadFailureListener = request
     }
 
     fun setLoadSuccessRequest(request: () -> Unit) {
-        loadSuccessRequest = request
+        loadSuccessListener = request
     }
 
     fun setClickRequest(request: () -> Unit) {
-        clickRequest = request
+        clickListener = request
     }
 
     fun loadNativeAd() {
-        val adLoader = AdLoader.Builder(context, NativeAdUnitId.value)
+        val adLoader = AdLoader.Builder(context, NativeAdCode.value)
             .forNativeAd { nativeAd ->
                 setNativeAd(nativeAd)
                 mediaView?.gone()
@@ -49,17 +49,17 @@ class SwitchNodeNativeAdView : NativeAdView {
             .withAdListener(object : AdListener() {
                 override fun onAdFailedToLoad(p0: LoadAdError) {
                     super.onAdFailedToLoad(p0)
-                    loadFailureRequest?.invoke(p0.message)
+                    loadFailureListener?.invoke(p0.message)
                 }
 
                 override fun onAdLoaded() {
                     super.onAdLoaded()
-                    loadSuccessRequest?.invoke()
+                    loadSuccessListener?.invoke()
                 }
 
                 override fun onAdClicked() {
                     super.onAdClicked()
-                    clickRequest?.invoke()
+                    clickListener?.invoke()
                 }
             })
             .build()

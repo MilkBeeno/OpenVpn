@@ -7,6 +7,6 @@ data class ApiResponse<T>(
     val message: String = "",
     @SerializedName("result")
     val data: T? = null,
-    var success: Boolean = false,
+    var successful: Boolean = false,
     var timestamp: Long = 0L
 )

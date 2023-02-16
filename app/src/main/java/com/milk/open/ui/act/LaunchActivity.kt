@@ -9,24 +9,24 @@ import androidx.core.app.NotificationManagerCompat
 import com.milk.open.R
 import com.milk.open.constant.KvKey
 import com.milk.open.databinding.ActivityLaunchBinding
-import com.milk.open.friebase.FireBaseManager
-import com.milk.open.friebase.FirebaseKey
-import com.milk.open.repository.AppRepository
-import com.milk.open.ui.dialog.OpenNotificationDialog
-import com.milk.open.util.Notification
+import com.milk.open.friebase.AnalyzeManager
+import com.milk.open.friebase.AnalyzeKey
+import com.milk.open.repository.AppRepo
+import com.milk.open.ui.dialog.ShowNotificationDialog
+import com.milk.open.util.NotificationManager
 import com.milk.simple.ktx.*
 import com.milk.simple.log.Logger
 import com.milk.simple.mdr.KvManger
 import java.security.MessageDigest
 
-class LaunchActivity : AbstractActivity() {
+class LaunchActivity : BaseActivity() {
     private val binding by lazy { ActivityLaunchBinding.inflate(layoutInflater) }
-    private val openNotificationDialog by lazy { OpenNotificationDialog(this) }
+    private val openNotificationDialog by lazy { ShowNotificationDialog(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        AppRepository.getConfig()
+        AppRepo.getConfig()
         val isFirst = KvManger.getBoolean(KvKey.FIRST_ENTER, true)
         if (isFirst) {
             binding.root.visible()
@@ -34,7 +34,7 @@ class LaunchActivity : AbstractActivity() {
             initializeView()
             openNotification()
         } else {
-            FireBaseManager.logEvent(FirebaseKey.ENTER_THE_STARTUP_PAGE)
+            AnalyzeManager.logEvent(AnalyzeKey.ENTER_THE_STARTUP_PAGE)
             binding.root.gone()
             BackStackActivity.create(context = this, fromStartPage = true)
             finish()
@@ -51,7 +51,7 @@ class LaunchActivity : AbstractActivity() {
             Pair(string(R.string.launch_privacy),
                 colorClickableSpan(color(R.color.FF0D5EFF)) {
                     val url = "https://res.duoglobalmaster.com/privacy.html"
-                    WebActivity.create(this, url)
+                    WebViewActivity.create(this, url)
                 })
         )
     }
@@ -61,7 +61,7 @@ class LaunchActivity : AbstractActivity() {
         if (!enable) {
             openNotificationDialog.show()
             openNotificationDialog.setConfirm {
-                Notification.obtainNotification(this)
+                NotificationManager.obtainNotification(this)
             }
         }
     }
@@ -74,8 +74,8 @@ class LaunchActivity : AbstractActivity() {
             }
             binding.tvStart -> {
                 if (binding.ivSelect.isSelected) {
-                    FireBaseManager.logEvent(FirebaseKey.CLICK_START)
-                    MainActivity.create(this)
+                    AnalyzeManager.logEvent(AnalyzeKey.CLICK_START)
+                    MainVpnActivity.create(this)
                     finish()
                 } else showToast(string(R.string.launch_privacy_agreement))
             }

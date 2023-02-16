@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="com.milk.open.BaseApplication"
+        android:name="com.milk.open.MyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -65,18 +65,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.milk.open.ui.act.MainActivity"
+            android:name="com.milk.open.ui.act.MainVpnActivity"
             android:exported="false"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.milk.open.ui.act.ResultActivity"
+            android:name="com.milk.open.ui.act.ResultPageActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.milk.open.ui.act.WebActivity"
+            android:name="com.milk.open.ui.act.WebViewActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
@@ -86,12 +86,12 @@
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.milk.open.ui.act.AboutActivity"
+            android:name="com.milk.open.ui.act.AboutUsActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity" />
         <activity
-            android:name="com.milk.open.ui.act.SwitchNodeActivity"
+            android:name="com.milk.open.ui.act.SwitchVpnActivity"
             android:exported="false"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"

@@ -6,10 +6,10 @@ import com.freetech.vpn.data.VpnProfile
 import com.freetech.vpn.data.VpnType
 import com.milk.open.ad.InterstitialAd
 import com.milk.open.data.VpnModel
-import com.milk.open.friebase.FireBaseManager
-import com.milk.open.friebase.FirebaseKey
-import com.milk.open.repository.VpnRepository
-import com.milk.open.util.MilkTimer
+import com.milk.open.friebase.AnalyzeManager
+import com.milk.open.friebase.AnalyzeKey
+import com.milk.open.repository.VpnRepo
+import com.milk.open.util.CustomTimer
 import com.milk.simple.ktx.ioScope
 import com.milk.simple.ktx.withMain
 
@@ -25,7 +25,7 @@ class VpnViewModel : ViewModel() {
 
     internal fun getVpnProfileInfo(vpnProfileRequest: (VpnProfile?) -> Unit) {
         ioScope {
-            val response = VpnRepository.getVpnInfo(vpnNodeId)
+            val response = VpnRepo.getVpnInfo(vpnNodeId)
             val result = response.data
             withMain {
                 if (response.code == 2000 && result != null) {
@@ -48,7 +48,7 @@ class VpnViewModel : ViewModel() {
     }
 
     internal fun loadInterstitialAd(activity: Activity, finishRequest: () -> Unit) {
-        MilkTimer.Builder()
+        CustomTimer.Builder()
             .setMillisInFuture(12000)
             .setOnFinishedListener {
                 if (!interstitialAd.isShowSuccessfulAd()) {
@@ -58,16 +58,16 @@ class VpnViewModel : ViewModel() {
             .build()
             .start()
 
-        FireBaseManager.logEvent(FirebaseKey.Make_an_ad_request_4)
+        AnalyzeManager.logEvent(AnalyzeKey.Make_an_ad_request_4)
         interstitialAd.load(
             context = activity,
             failure = {
                 finishRequest()
-                FireBaseManager.logEvent(FirebaseKey.Ad_request_failed_4, it)
+                AnalyzeManager.logEvent(AnalyzeKey.Ad_request_failed_4, it)
             },
             success = {
                 showInterstitialAd(activity, finishRequest)
-                FireBaseManager.logEvent(FirebaseKey.Ad_request_succeeded_4)
+                AnalyzeManager.logEvent(AnalyzeKey.Ad_request_succeeded_4)
             }
         )
     }
@@ -77,13 +77,13 @@ class VpnViewModel : ViewModel() {
             activity = activity,
             failure = {
                 finishRequest()
-                FireBaseManager.logEvent(FirebaseKey.Ad_show_failed_4, it)
+                AnalyzeManager.logEvent(AnalyzeKey.Ad_show_failed_4, it)
             },
             success = {
-                FireBaseManager.logEvent(FirebaseKey.The_ad_show_success_4)
+                AnalyzeManager.logEvent(AnalyzeKey.The_ad_show_success_4)
             },
             click = {
-                FireBaseManager.logEvent(FirebaseKey.click_ad_4)
+                AnalyzeManager.logEvent(AnalyzeKey.click_ad_4)
             },
             close = {
                 finishRequest()

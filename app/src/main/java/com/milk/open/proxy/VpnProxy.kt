@@ -12,17 +12,17 @@ import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import com.freetech.vpn.data.VpnProfile
 import com.freetech.vpn.logic.VpnStateService
-import com.milk.open.ui.act.MainActivity
-import com.milk.open.ui.type.VpnState
-import com.milk.open.util.MilkTimer
+import com.milk.open.ui.act.MainVpnActivity
+import com.milk.open.ui.type.VpnConnectState
+import com.milk.open.util.CustomTimer
 import com.milk.simple.log.Logger
 
-class VpnProxy(private val activity: MainActivity) {
+class VpnProxy(private val activity: MainVpnActivity) {
     private var vpnService: VpnStateService? = null
     private var isConnecting: Boolean = false
 
     private var vpnOpenedRequest: (() -> Unit)? = null
-    private var vpnStateChangedRequest: ((VpnState, Boolean) -> Unit)? = null
+    private var vpnStateChangedRequest: ((VpnConnectState, Boolean) -> Unit)? = null
 
     private val result = ActivityResultContracts.StartActivityForResult()
     private val activityResult = activity.registerForActivityResult(result) {
@@ -40,12 +40,12 @@ class VpnProxy(private val activity: MainActivity) {
                             Logger.d("连接 VPN 第六步：vpn 连接超时，断开连接 ", "代理VPN")
                             isConnecting = false
                         } else {
-                            vpnStateChangedRequest?.invoke(VpnState.DISCONNECT, true)
+                            vpnStateChangedRequest?.invoke(VpnConnectState.DISCONNECT, true)
                         }
                     }
                     VpnStateService.State.CONNECTED -> {
                         isConnecting = false
-                        vpnStateChangedRequest?.invoke(VpnState.CONNECTED, true)
+                        vpnStateChangedRequest?.invoke(VpnConnectState.CONNECTED, true)
                         Logger.d("连接 VPN 第五步：vpn 连接成功 ", "代理VPN")
                     }
                     VpnStateService.State.CONNECTING -> {
@@ -56,7 +56,7 @@ class VpnProxy(private val activity: MainActivity) {
                 }
             else -> {
                 isConnecting = false
-                vpnStateChangedRequest?.invoke(VpnState.DISCONNECT, false)
+                vpnStateChangedRequest?.invoke(VpnConnectState.DISCONNECT, false)
                 Logger.d("连接 VPN 第四步：vpn 连接发生错误 ", "代理VPN")
             }
         }
@@ -97,7 +97,7 @@ class VpnProxy(private val activity: MainActivity) {
         this.vpnOpenedRequest = vpnOpenedRequest
     }
 
-    fun setVpnStateChangedListener(vpnStateChangedRequest: (VpnState, Boolean) -> Unit) {
+    fun setVpnStateChangedListener(vpnStateChangedRequest: (VpnConnectState, Boolean) -> Unit) {
         this.vpnStateChangedRequest = vpnStateChangedRequest
     }
 
@@ -119,12 +119,12 @@ class VpnProxy(private val activity: MainActivity) {
         }
         isConnecting = true
         // 设置默认一分钟未连上为超时操作
-        MilkTimer.Builder()
+        CustomTimer.Builder()
             .setCountDownInterval(1000)
             .setMillisInFuture(15 * 1000)
             .setOnFinishedListener {
                 if (isConnecting) {
-                    vpnStateChangedRequest?.invoke(VpnState.DISCONNECT, false)
+                    vpnStateChangedRequest?.invoke(VpnConnectState.DISCONNECT, false)
                     Logger.d("连接 VPN 第五步：vpn 连接超时 ", "代理VPN")
                     vpnService?.disconnect()
                 }

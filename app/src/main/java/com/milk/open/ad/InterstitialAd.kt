@@ -8,7 +8,7 @@ import com.google.android.gms.ads.FullScreenContentCallback
 import com.google.android.gms.ads.LoadAdError
 import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.google.android.gms.ads.interstitial.InterstitialAdLoadCallback
-import com.milk.open.ad.unitId.InterstitialAdUnitId
+import com.milk.open.ad.unitId.InterstitialAdCode
 import com.milk.simple.log.Logger
 
 class InterstitialAd {
@@ -42,7 +42,7 @@ class InterstitialAd {
                 Logger.d("InterstitialAd：Ad was loaded.", tag)
             }
         }
-        InterstitialAd.load(context, InterstitialAdUnitId.value, request, callback)
+        InterstitialAd.load(context, InterstitialAdCode.value, request, callback)
     }
 
     fun show(

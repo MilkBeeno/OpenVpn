@@ -7,7 +7,7 @@ import com.drake.brv.item.ItemHover
 import com.drake.brv.item.ItemPosition
 import com.milk.open.R
 import com.milk.open.databinding.ItemSwitchGroupBinding
-import com.milk.open.media.ImageLoader
+import com.milk.open.media.PictureLoader
 import com.milk.simple.ktx.gone
 import com.milk.simple.ktx.string
 import com.milk.simple.ktx.visible
@@ -37,7 +37,7 @@ class VpnGroup : ItemExpand, ItemHover, ItemPosition, ItemBind {
             itemSublist != null -> {
                 binding.vLine.gone()
                 binding.llContent.visible()
-                ImageLoader.Builder()
+                PictureLoader.Builder()
                     .request(areaImage)
                     .target(binding.ivGroupImage)
                     .build()

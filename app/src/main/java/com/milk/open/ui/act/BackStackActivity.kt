@@ -5,13 +5,13 @@ import android.content.Intent
 import android.os.Bundle
 import com.milk.open.ad.AppOpenAd
 import com.milk.open.databinding.ActivityBackStackBinding
-import com.milk.open.friebase.FireBaseManager
-import com.milk.open.friebase.FirebaseKey
-import com.milk.open.repository.AppRepository
-import com.milk.open.util.MilkTimer
+import com.milk.open.friebase.AnalyzeManager
+import com.milk.open.friebase.AnalyzeKey
+import com.milk.open.repository.AppRepo
+import com.milk.open.util.CustomTimer
 import com.milk.simple.ktx.immersiveStatusBar
 
-class BackStackActivity : AbstractActivity() {
+class BackStackActivity : BaseActivity() {
     private val appOpenAd by lazy { AppOpenAd() }
     private val binding by lazy { ActivityBackStackBinding.inflate(layoutInflater) }
     private val fromStartPage by lazy { intent.getBooleanExtra(FROM_START_PAGE, false) }
@@ -31,7 +31,7 @@ class BackStackActivity : AbstractActivity() {
     }
 
     private fun loadAppOpenAd() {
-        MilkTimer.Builder()
+        CustomTimer.Builder()
             .setMillisInFuture(12000)
             .setOnFinishedListener {
                 if (!appOpenAd.isShowSuccessfulAd()) {
@@ -41,17 +41,17 @@ class BackStackActivity : AbstractActivity() {
             .build()
             .start()
 
-        if (AppRepository.showOpenAd) {
-            FireBaseManager.logEvent(FirebaseKey.Make_an_ad_request_3)
+        if (AppRepo.showOpenAd) {
+            AnalyzeManager.logEvent(AnalyzeKey.Make_an_ad_request_3)
             appOpenAd.load(
                 context = this,
                 failure = {
                     next()
-                    FireBaseManager.logEvent(FirebaseKey.Ad_request_failed_3, it)
+                    AnalyzeManager.logEvent(AnalyzeKey.Ad_request_failed_3, it)
                 },
                 success = {
                     showAppOpenAd()
-                    FireBaseManager.logEvent(FirebaseKey.Ad_request_succeeded_3)
+                    AnalyzeManager.logEvent(AnalyzeKey.Ad_request_succeeded_3)
                 }
             )
         }
@@ -62,13 +62,13 @@ class BackStackActivity : AbstractActivity() {
             activity = this,
             failure = {
                 next()
-                FireBaseManager.logEvent(FirebaseKey.Ad_show_failed_3, it)
+                AnalyzeManager.logEvent(AnalyzeKey.Ad_show_failed_3, it)
             },
             success = {
-                FireBaseManager.logEvent(FirebaseKey.The_ad_show_success_3)
+                AnalyzeManager.logEvent(AnalyzeKey.The_ad_show_success_3)
             },
             click = {
-                FireBaseManager.logEvent(FirebaseKey.click_ad_3)
+                AnalyzeManager.logEvent(AnalyzeKey.click_ad_3)
             },
             close = {
                 next()
@@ -78,7 +78,7 @@ class BackStackActivity : AbstractActivity() {
 
     private fun next() {
         if (fromStartPage) {
-            MainActivity.create(this)
+            MainVpnActivity.create(this)
         }
         finish()
     }

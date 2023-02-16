@@ -3,7 +3,7 @@ package com.milk.open.ui.vm
 import androidx.lifecycle.ViewModel
 import com.milk.open.data.VpnGroup
 import com.milk.open.data.VpnNode
-import com.milk.open.repository.VpnRepository
+import com.milk.open.repository.VpnRepo
 import com.milk.simple.ktx.ioScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import java.io.BufferedReader
@@ -17,7 +17,7 @@ class SwitchNodeViewModel : ViewModel() {
 
     fun getVpnListInfo() {
         ioScope {
-            val response = VpnRepository.getVpnListInfo()
+            val response = VpnRepo.getVpnListInfo()
             val result = response.data
             if (response.code == 2000 && result != null) {
                 val groups = arrayListOf<VpnGroup>()
