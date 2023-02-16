@@ -1,4 +1,4 @@
-package com.milk.global.ui.act
+package com.milk.open.ui.act
 
 import android.content.Context
 import android.content.Intent
