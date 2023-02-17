@@ -17,7 +17,7 @@ class AboutUsActivity : BaseActivity() {
         setContentView(binding.root)
         immersiveStatusBar(false)
         binding.flHeaderToolbar.statusBarPadding()
-        binding.tvVersion.text = "V ".plus(BuildConfig.VERSION_NAME)
+        binding.tvVersion.text = "v".plus(BuildConfig.VERSION_NAME)
         binding.ivBack.setOnClickListener(this)
         binding.llPrivacy.setOnClickListener(this)
     }

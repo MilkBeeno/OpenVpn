@@ -30,7 +30,7 @@
         android:paddingTop="4dp"
         android:paddingEnd="7dp"
         android:paddingBottom="4dp"
-        android:progressDrawable="@drawable/back_stack_progress_bar"
+        android:progressDrawable="@drawable/shape_back_stack_progress_bar"
         app:layout_constraintBottom_toTopOf="@+id/tvContent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="parent" />

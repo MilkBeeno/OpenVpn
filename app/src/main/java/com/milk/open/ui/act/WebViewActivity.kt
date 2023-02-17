@@ -16,7 +16,7 @@ class WebViewActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        immersiveStatusBar()
+        immersiveStatusBar(false)
         binding.ivBack.statusBarPadding()
         binding.ivBack.setOnClickListener { finish() }
         binding.webView.loadUrl(url)

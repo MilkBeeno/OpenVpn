@@ -19,7 +19,8 @@
     <string name="main_disconnecting">Disconnecting</string>
     <string name="main_network_tip">Network type</string>
     <!--关于我们页面翻译-->
-    <string name="about_us_title">About Us</string>
+    <string name="about_us_title">About us</string>
+    <string name="about_us_privacy">Privacy policy</string>
     <string name="dialog_wait">Please Wait</string>
     <string name="switch_node_title">Change Sever</string>
     <string name="common_auto_select">Auto Select</string>

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/about_us_background"
+    android:background="@drawable/shape_about_us_background"
     android:orientation="vertical"
     tools:context=".ui.act.AboutUsActivity">
 
@@ -16,12 +16,8 @@
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivBack"
             android:layout_width="42dp"
-            android:layout_height="match_parent"
+            android:layout_height="42dp"
             android:layout_gravity="center_vertical"
-            android:paddingStart="9dp"
-            android:paddingTop="9dp"
-            android:paddingEnd="9dp"
-            android:paddingBottom="9dp"
             android:scaleType="centerCrop"
             android:src="@drawable/common_back_arrow" />
 
@@ -30,46 +26,33 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="@string/about_us_title"
-            android:textColor="@color/FF121212"
-            android:textSize="16sp"
+            android:textColor="@color/white_85"
+            android:textSize="17sp"
             android:textStyle="bold" />
     </FrameLayout>
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="154dp"
+        android:layout_height="154dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="38dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/common_app_image">
+        android:src="@drawable/about_us_vpn">
 
     </androidx.appcompat.widget.AppCompatImageView>
 
-    <androidx.appcompat.widget.AppCompatTextView
+    <androidx.appcompat.widget.AppCompatImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="14dp"
-        android:text="@string/app_name"
-        android:textColor="@color/FF0D5EFF"
-        android:textSize="24sp"
-        android:textStyle="bold" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvVersion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="5dp"
-        android:textColor="@color/FF808080"
-        android:textSize="14sp"
-        tools:text="@string/app_name" />
+        android:scaleType="centerCrop"
+        android:src="@drawable/about_us_text" />
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/llPrivacy"
         android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:layout_marginTop="48dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="51dp"
         android:gravity="center_vertical">
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -84,9 +67,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:text="@string/launch_privacy"
-            android:textColor="@color/FF121212"
-            android:textSize="14sp"
+            android:text="@string/about_us_privacy"
+            android:textColor="@color/white_85"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <Space
@@ -102,5 +85,51 @@
             android:layout_marginEnd="15dp"
             android:scaleType="centerCrop"
             android:src="@drawable/about_us_enter_arrow" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginEnd="14dp"
+        android:background="@color/white_10" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/llVersion"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:gravity="center_vertical">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="15dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/about_us_version" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="@string/about_us_title"
+            android:textColor="@color/white_85"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvVersion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="9dp"
+            android:layout_marginEnd="15dp"
+            android:textColor="#20F8C1"
+            android:textSize="13sp" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 </androidx.appcompat.widget.LinearLayoutCompat>
