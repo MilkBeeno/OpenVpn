@@ -19,7 +19,7 @@ import com.milk.simple.log.Logger
 import com.milk.simple.mdr.KvManger
 import java.security.MessageDigest
 
-class LaunchActivity : BaseActivity() {
+class LauncherActivity : BaseActivity() {
     private val binding by lazy { ActivityLaunchBinding.inflate(layoutInflater) }
     private val openNotificationDialog by lazy { ShowNotificationDialog(this) }
 

@@ -7,7 +7,7 @@ import com.google.android.gms.ads.RequestConfiguration
 import com.milk.open.friebase.AnalyzeManager
 import com.milk.open.media.LoaderManager
 import com.milk.open.ui.act.BackStackActivity
-import com.milk.open.ui.act.LaunchActivity
+import com.milk.open.ui.act.LauncherActivity
 import com.milk.open.util.Backstage
 import com.milk.simple.ktx.ioScope
 import com.milk.simple.log.Logger
@@ -33,7 +33,7 @@ class MyApplication : Application() {
             LoaderManager.initialize(current)
             AnalyzeManager.initialize(current)
             Backstage.backToForegroundMonitor(current) {
-                if (it !is LaunchActivity && it !is BackStackActivity)
+                if (it !is LauncherActivity && it !is BackStackActivity)
                     BackStackActivity.create(current)
             }
         }

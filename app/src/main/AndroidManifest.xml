@@ -54,7 +54,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.milk.open.ui.act.LaunchActivity"
+            android:name="com.milk.open.ui.act.LauncherActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             tools:ignore="LockedOrientationActivity">
