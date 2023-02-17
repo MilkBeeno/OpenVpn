@@ -52,7 +52,7 @@
             android:layout_width="40dp"
             android:layout_height="30dp"
             android:layout_marginStart="14dp"
-            android:scaleType="centerCrop"
+            android:padding="1dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

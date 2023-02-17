@@ -42,12 +42,11 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/ivNetwork"
-            android:layout_width="33dp"
-            android:layout_height="33dp"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
             android:layout_marginStart="51dp"
-            android:scaleType="centerCrop"
             android:src="@drawable/main_network"
-            app:shapeAppearanceOverlay="@style/circleStyle" />
+            app:shapeAppearanceOverlay="@style/roundCornerStyle_4" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvNetwork"
