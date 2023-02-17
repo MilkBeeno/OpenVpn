@@ -10,14 +10,14 @@ import com.jeremyliao.liveeventbus.LiveEventBus
 import com.milk.open.R
 import com.milk.open.constant.EventKey
 import com.milk.open.databinding.ActivityMainBinding
-import com.milk.open.friebase.AnalyzeManager
 import com.milk.open.friebase.AnalyzeKey
+import com.milk.open.friebase.AnalyzeManager
 import com.milk.open.media.PictureLoader
 import com.milk.open.proxy.VpnProxy
 import com.milk.open.repository.AppRepo
+import com.milk.open.ui.dialog.VpnConnectFailureDialog
 import com.milk.open.ui.dialog.VpnConnectingDialog
 import com.milk.open.ui.dialog.VpnDisConnectDialog
-import com.milk.open.ui.dialog.VpnConnectFailureDialog
 import com.milk.open.ui.type.VpnConnectState
 import com.milk.open.ui.vm.VpnViewModel
 import com.milk.open.util.NotificationManager
@@ -49,7 +49,7 @@ class MainVpnActivity : BaseActivity() {
 
     private fun initializeView() {
         immersiveStatusBar(false)
-        binding.llHeaderToolbar.statusBarPadding()
+        binding.flHeaderToolbar.statusBarPadding()
         binding.ivMenu.setOnClickListener(this)
         binding.ivShare.setOnClickListener(this)
         binding.llNetwork.setOnClickListener(this)
@@ -65,6 +65,7 @@ class MainVpnActivity : BaseActivity() {
     private fun openVpnListener() {
         vpnProxy.setVpnOpenedListener {
             connectingDialog.show()
+            vpnChangingState(true)
             vpnViewModel.getVpnProfileInfo {
                 if (it == null) {
                     binding.ivConnect.postDelayed({
@@ -126,7 +127,6 @@ class MainVpnActivity : BaseActivity() {
 
     private fun vpnDisconnect(showResult: Boolean = true) {
         updateConnectInfo()
-        binding.root.setBackgroundResource(R.drawable.main_disconnect_background)
         binding.ivConnect.setBackgroundResource(R.drawable.main_not_connect)
         binding.tvConnect.text = string(R.string.main_disconnect)
         binding.tvConnect.setBackgroundResource(R.drawable.shape_main_disconnect)
@@ -139,13 +139,22 @@ class MainVpnActivity : BaseActivity() {
         }
     }
 
+    private fun vpnChangingState(connecting: Boolean) {
+        binding.tvConnect.text = if (connecting) {
+            string(R.string.main_connecting)
+        } else {
+            string(R.string.main_disconnecting)
+        }
+        binding.tvConnect.setBackgroundResource(R.drawable.shape_main_connected)
+        binding.tvConnect.setTextColor(color(R.color.FF31FFDA))
+    }
+
     private fun vpnConnected() {
         updateConnectInfo()
-        binding.root.setBackgroundResource(R.drawable.main_connected_background)
         binding.ivConnect.setBackgroundResource(R.drawable.main_connected)
         binding.tvConnect.text = string(R.string.main_connected)
         binding.tvConnect.setBackgroundResource(R.drawable.shape_main_connected)
-        binding.tvConnect.setTextColor(color(R.color.FF0C9AFF))
+        binding.tvConnect.setTextColor(color(R.color.FF31FFDA))
         vpnConnectResult(true)
         // 发送通知
         val enabled = NotificationManagerCompat
@@ -249,6 +258,7 @@ class MainVpnActivity : BaseActivity() {
             binding.tvConnect -> {
                 if (vpnViewModel.vpnIsConnected) {
                     disconnectDialog.show()
+                    vpnChangingState(false)
                     binding.tvConnect.postDelayed({
                         vpnProxy.closeVpn()
                     }, 4000)

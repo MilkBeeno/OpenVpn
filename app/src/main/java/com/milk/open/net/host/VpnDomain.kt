@@ -6,6 +6,6 @@ class VpnDomain : ApiDomain {
     }
 
     override fun debugUrl(): String {
-        return "http://apv.duoglobalmastert.click"
+        return "http://apv.openvpnsafet.click"
     }
 }

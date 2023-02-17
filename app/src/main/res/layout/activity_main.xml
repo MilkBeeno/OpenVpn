@@ -4,131 +4,95 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main_disconnect_background"
+    android:background="@drawable/shape_main_background"
     tools:context=".ui.act.MainVpnActivity">
 
     <FrameLayout
-        android:id="@+id/llHeaderToolbar"
+        android:id="@+id/flHeaderToolbar"
         android:layout_width="match_parent"
         android:layout_height="42dp"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivMenu"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
             android:layout_gravity="center_vertical"
             android:layout_marginStart="14dp"
             android:scaleType="centerCrop"
             android:src="@drawable/main_menu" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/app_name"
-            android:textColor="@color/FF121212"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivShare"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
             android:layout_gravity="center_vertical|end"
-            android:layout_marginStart="14dp"
             android:layout_marginEnd="14dp"
             android:scaleType="centerCrop"
             android:src="@drawable/main_share" />
     </FrameLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/llNetwork"
         android:layout_width="match_parent"
-        android:layout_height="58dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="38dp"
-        android:layout_marginEnd="24dp"
-        android:background="@drawable/shape_main_network_background"
+        android:layout_height="100dp"
+        android:background="@drawable/main_network_background"
         android:gravity="center_vertical"
-        app:layout_constraintTop_toBottomOf="@+id/llHeaderToolbar">
+        app:layout_constraintTop_toBottomOf="@+id/flHeaderToolbar">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/ivNetwork"
             android:layout_width="33dp"
             android:layout_height="33dp"
-            android:layout_marginStart="19dp"
+            android:layout_marginStart="51dp"
             android:scaleType="centerCrop"
             android:src="@drawable/main_network"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearanceOverlay="@style/circleStyle" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvNetworkTip"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="14dp"
-            android:text="@string/main_network_tip"
-            android:textColor="@color/FF808080"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toTopOf="@+id/tvNetwork"
-            app:layout_constraintStart_toEndOf="@+id/ivNetwork"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_chainStyle="packed" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvNetwork"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:textColor="@color/FF121212"
-            android:textSize="16sp"
+            android:text="@string/common_auto_select"
+            android:textColor="@color/white_85"
+            android:textSize="17sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/ivNetwork"
             app:layout_constraintTop_toBottomOf="@+id/tvNetworkTip" />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:layout_marginEnd="5dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/main_signal_strength"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/ivSelect"
-            app:layout_constraintTop_toTopOf="parent" />
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivSelect"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginEnd="19dp"
+            android:layout_marginEnd="51dp"
             android:scaleType="centerCrop"
             android:src="@drawable/main_arrow_enter"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivConnect"
-        android:layout_width="264dp"
-        android:layout_height="274dp"
-        android:layout_marginTop="41dp"
+        android:layout_width="match_parent"
+        android:layout_height="360dp"
+        android:layout_marginTop="60dp"
         android:scaleType="centerCrop"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/llNetwork" />
+        app:layout_constraintTop_toBottomOf="@+id/flHeaderToolbar" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvConnect"
-        android:layout_width="254dp"
-        android:layout_height="43dp"
-        android:layout_marginTop="13dp"
+        android:layout_width="211dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="-20dp"
         android:gravity="center"
         android:textSize="19sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivConnect" />

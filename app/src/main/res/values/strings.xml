@@ -16,6 +16,7 @@
     <string name="main_disconnect">Connect</string>
     <string name="main_connected">Disconnect</string>
     <string name="main_connecting">Connecting</string>
+    <string name="main_disconnecting">Disconnecting</string>
     <string name="main_network_tip">Network type</string>
     <!--关于我们页面翻译-->
     <string name="about_us_title">About Us</string>

@@ -1,42 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/disconnectLottieView"
-        android:layout_width="246dp"
-        android:layout_height="235dp"
+    <LinearLayout
+        android:layout_width="274dp"
+        android:layout_height="167dp"
         android:layout_gravity="center"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:lottie_autoPlay="true"
-        app:lottie_repeatCount="-1" />
+        android:background="@drawable/shape_vpn_connect_state"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvText1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="167dp"
-        android:text="@string/common_wait"
-        android:textColor="@color/FF121212"
-        android:textSize="19sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/disconnectLottieView" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivAnimation"
+            android:layout_width="77dp"
+            android:layout_height="77dp"
+            android:layout_marginTop="12dp" />
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tvText2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/main_disconnect_now"
-        android:textColor="@color/FF808080"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvText1" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvText1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/common_wait"
+            android:textColor="@color/white_85"
+            android:textSize="23sp"
+            android:textStyle="bold" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="@string/main_disconnect_now"
+            android:textColor="@color/white_65"
+            android:textSize="14sp" />
+    </LinearLayout>
+</FrameLayout>

@@ -3,20 +3,22 @@ package com.milk.open.data
 import com.google.gson.annotations.SerializedName
 
 data class AppConfigModel(
+    @SerializedName("Vw2345671")
     var share_copy: String = "",
+    @SerializedName("Vw2345672")
     var Shield_app_bundle: String = "",
-    @SerializedName("V12345671")
+    @SerializedName("Vw2345673")
     var mainNativeAd: String = "",
-    @SerializedName("V12345672")
+    @SerializedName("Vw2345674")
     var openAd: String = "",
-    @SerializedName("V12345673")
+    @SerializedName("Vw2345675")
     var connectedInsertAd: String = "",
-    @SerializedName("V12345674")
+    @SerializedName("Vw2345676")
     var connectedNativeAd: String = "",
-    @SerializedName("V12345675")
+    @SerializedName("Vw2345677")
     var disconnectInsertAd: String = "",
-    @SerializedName("V12345676")
+    @SerializedName("Vw2345678")
     var disconnectNativeAd: String = "",
-    @SerializedName("V12345677")
+    @SerializedName("Vw2345679")
     var switchNativeAd: String = "",
 )
