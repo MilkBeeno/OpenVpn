@@ -72,7 +72,7 @@
             android:layout_marginStart="8dp"
             android:includeFontPadding="false"
             android:text="@string/launch_privacy_content"
-            android:textColor="@color/A5FFFFFF"
+            android:textColor="@color/white_35"
             android:textSize="13sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

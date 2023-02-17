@@ -5,8 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import com.milk.open.ad.AppOpenAd
 import com.milk.open.databinding.ActivityBackStackBinding
-import com.milk.open.friebase.AnalyzeManager
 import com.milk.open.friebase.AnalyzeKey
+import com.milk.open.friebase.AnalyzeManager
 import com.milk.open.repository.AppRepo
 import com.milk.open.util.CustomTimer
 import com.milk.simple.ktx.immersiveStatusBar
@@ -26,13 +26,16 @@ class BackStackActivity : BaseActivity() {
 
     private fun initializeView() {
         immersiveStatusBar(false)
-        binding.lineLottieView.setAnimation("back_stack_progress.json")
-        binding.lineLottieView.playAnimation()
+        binding.progressBar.max = 12000
     }
 
     private fun loadAppOpenAd() {
         CustomTimer.Builder()
+            .setCountDownInterval(10)
             .setMillisInFuture(12000)
+            .setOnTickListener { _, t ->
+                binding.progressBar.progress = (12000 - t).toInt()
+            }
             .setOnFinishedListener {
                 if (!appOpenAd.isShowSuccessfulAd()) {
                     next()

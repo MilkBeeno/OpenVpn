@@ -9,37 +9,44 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/ivTopBackground"
-        android:layout_width="197dp"
-        android:layout_height="190dp"
-        android:layout_marginTop="216dp"
+        android:layout_width="58dp"
+        android:layout_height="58dp"
+        android:layout_marginBottom="46dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/back_stack_top_image"
+        android:src="@drawable/back_stack_bottom_image"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/lineLottieView"
-        android:layout_width="258dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="15dp"
+        android:paddingStart="7dp"
+        android:paddingTop="4dp"
+        android:paddingEnd="7dp"
+        android:paddingBottom="4dp"
+        android:progressDrawable="@drawable/back_stack_progress_bar"
+        app:layout_constraintBottom_toTopOf="@+id/tvContent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivTopBackground"
-        app:lottie_autoPlay="true"
-        app:lottie_repeatCount="0" />
+        app:layout_constraintStart_toEndOf="parent" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvContent"
         android:layout_width="194dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-35dp"
+        android:layout_marginBottom="75dp"
         android:ellipsize="end"
+        android:includeFontPadding="false"
         android:maxLines="1"
         android:text="@string/back_stack_content"
-        android:textColor="@color/FF121212"
+        android:textColor="@color/white_85"
         android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/ivTopBackground"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lineLottieView" />
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
