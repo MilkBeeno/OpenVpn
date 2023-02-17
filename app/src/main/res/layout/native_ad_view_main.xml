@@ -97,7 +97,7 @@
                 android:gravity="center"
                 android:lines="1"
                 android:text="Install"
-                android:textColor="@color/FF2E3134"
+                android:textColor="@color/black"
                 android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/clContent" />
@@ -105,7 +105,7 @@
             <com.google.android.gms.ads.nativead.MediaView
                 android:id="@+id/media_view"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="wrap_content"
                 android:visibility="gone"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

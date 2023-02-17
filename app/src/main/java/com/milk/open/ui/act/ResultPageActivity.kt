@@ -5,8 +5,8 @@ import android.content.Intent
 import android.os.Bundle
 import com.milk.open.R
 import com.milk.open.databinding.ActivityResultBinding
-import com.milk.open.friebase.AnalyzeManager
 import com.milk.open.friebase.AnalyzeKey
+import com.milk.open.friebase.AnalyzeManager
 import com.milk.open.media.PictureLoader
 import com.milk.open.repository.AppRepo
 import com.milk.simple.ktx.immersiveStatusBar
@@ -31,11 +31,9 @@ class ResultPageActivity : BaseActivity() {
         binding.ivBack.statusBarPadding()
         binding.ivBack.setOnClickListener { finish() }
         if (isConnected) {
-            binding.ivBackground.setBackgroundResource(R.drawable.result_success_background)
             binding.ivResult.setBackgroundResource(R.drawable.result_link_success)
             binding.tvResult.text = string(R.string.result_connected)
         } else {
-            binding.ivBackground.setBackgroundResource(R.drawable.result_failure_background)
             binding.ivResult.setBackgroundResource(R.drawable.result_link_failure)
             binding.tvResult.text = string(R.string.result_failure)
         }
