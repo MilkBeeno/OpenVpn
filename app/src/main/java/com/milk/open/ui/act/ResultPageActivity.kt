@@ -47,7 +47,7 @@ class ResultPageActivity : BaseActivity() {
         }
         binding.tvNetwork.text =
             vpnName.ifBlank { string(R.string.common_auto_select) }
-        binding.tvPing.text = vpnPing.toString().plus("ms")
+        binding.tvPing.text = vpnPing.toString()
         // 原生广告展示和统计事件
         binding.nativeView.setLoadFailureRequest {
             if (isConnected) {
