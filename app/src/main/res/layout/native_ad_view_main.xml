@@ -10,7 +10,7 @@
         android:layout_marginStart="14dp"
         android:layout_marginEnd="14dp"
         android:layout_marginBottom="19dp"
-        android:background="@drawable/shape_switch_node_native_ad_background"
+        android:background="@drawable/shape_native_ad_background"
         android:visibility="gone"
         tools:visibility="visible">
 
