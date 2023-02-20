@@ -14,11 +14,13 @@ import com.milk.open.constant.EventKey
 import com.milk.open.data.VpnGroup
 import com.milk.open.data.VpnNode
 import com.milk.open.databinding.ActivitySwitchNodeBinding
-import com.milk.open.friebase.AnalyzeManager
 import com.milk.open.friebase.AnalyzeKey
+import com.milk.open.friebase.AnalyzeManager
 import com.milk.open.repository.AppRepo
 import com.milk.open.ui.vm.SwitchNodeViewModel
 import com.milk.simple.ktx.collectLatest
+import com.milk.simple.ktx.immersiveStatusBar
+import com.milk.simple.ktx.statusBarPadding
 import java.util.*
 
 class SwitchVpnActivity : BaseActivity() {
@@ -37,6 +39,8 @@ class SwitchVpnActivity : BaseActivity() {
     }
 
     private fun initializeView() {
+        immersiveStatusBar(false)
+        binding.flHeaderToolbar.statusBarPadding()
         switchNodeViewModel.currentNodeId = currentNodeId
         switchNodeViewModel.currentConnected = currentConnected
         binding.ivBack.setOnClickListener(this)

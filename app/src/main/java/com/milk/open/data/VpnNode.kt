@@ -2,8 +2,6 @@ package com.milk.open.data
 
 import com.drake.brv.BindingAdapter
 import com.drake.brv.item.ItemBind
-import com.milk.simple.ktx.gone
-import com.milk.simple.ktx.visible
 import com.milk.open.R
 import com.milk.open.databinding.ItemSwitchNodeBinding
 import com.milk.open.media.PictureLoader
@@ -18,19 +16,13 @@ class VpnNode : ItemBind {
     var position: Int = 0
     override fun onBind(holder: BindingAdapter.BindingViewHolder) {
         val binding = ItemSwitchNodeBinding.bind(holder.itemView)
-        binding.root.setBackgroundResource(
-            if (position == itemSize - 1)
-                R.drawable.shape_switch_node_footer
-            else
-                R.drawable.shape_switch_node
-        )
         PictureLoader.Builder()
             .request(areaImage)
             .target(binding.ivNodeImage)
             .build()
         binding.ivNodeSelect.isSelected = isSelect
         binding.tvNodeName.text = areaName
-        binding.tvPing.text = ping.toString().plus("ms")
-        if (position == itemSize - 1) binding.vLine.gone() else binding.vLine.visible()
+        binding.tvPing.text = ping.toString()
+        // if (position == itemSize - 1) binding.vLine.gone() else binding.vLine.visible()
     }
 }

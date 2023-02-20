@@ -3,18 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/shape_switch_node_background"
     android:orientation="vertical"
     tools:context=".ui.act.SwitchVpnActivity">
 
     <FrameLayout
+        android:id="@+id/flHeaderToolbar"
         android:layout_width="match_parent"
         android:layout_height="42dp">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivBack"
             android:layout_width="42dp"
-            android:layout_marginStart="14dp"
             android:layout_height="match_parent"
+            android:layout_marginStart="14dp"
             android:scaleType="centerCrop"
             android:src="@drawable/common_back_arrow" />
 

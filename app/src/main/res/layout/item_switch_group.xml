@@ -3,13 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="14dp"
-    android:layout_marginTop="10dp"
-    android:layout_marginEnd="14dp"
-    android:background="@drawable/shape_switch_group_not_expand"
-    android:maxHeight="77dp"
-    android:minHeight="58dp">
+    android:layout_height="67dp">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/llContent"
@@ -20,18 +14,18 @@
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/ivGroupImage"
-            android:layout_width="33dp"
-            android:layout_height="33dp"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
             android:layout_marginStart="14dp"
-            app:shapeAppearanceOverlay="@style/circleStyle" />
+            app:shapeAppearanceOverlay="@style/roundCornerStyle_4" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvGroupName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="13dp"
-            android:textColor="@color/FF121212"
-            android:textSize="14sp"
+            android:layout_marginStart="12dp"
+            android:textColor="@color/white_85"
+            android:textSize="17sp"
             android:textStyle="bold" />
 
         <Space
@@ -41,17 +35,18 @@
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivGroupExpand"
-            android:layout_width="34sp"
-            android:layout_height="35dp"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
             android:layout_marginEnd="21dp"
             android:padding="5dp"
             android:src="@drawable/switch_node_expand" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivGroupSelect"
-            android:layout_width="24sp"
-            android:layout_height="24dp"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
             android:layout_marginEnd="14dp"
+            android:padding="5dp"
             android:src="@drawable/selector_select" />
 
     </androidx.appcompat.widget.LinearLayoutCompat>

@@ -20,22 +20,15 @@ class VpnGroup : ItemExpand, ItemHover, ItemPosition, ItemBind {
     override var itemExpand: Boolean = false
     override var itemGroupPosition: Int = 0
     override var itemSublist: List<Any?>? = null
-    override var itemHover: Boolean = true
+    override var itemHover: Boolean = false
     override var itemPosition: Int = 0
 
     override fun onBind(holder: BindingAdapter.BindingViewHolder) {
         val binding = ItemSwitchGroupBinding.bind(holder.itemView)
-        binding.root.setBackgroundResource(
-            if (itemExpand) {
-                R.drawable.shape_switch_group_expand
-            } else {
-                R.drawable.shape_switch_group_not_expand
-            }
-        )
         when {
             // 显示 VPN 列表节点
             itemSublist != null -> {
-                binding.vLine.gone()
+                // binding.vLine.gone()
                 binding.llContent.visible()
                 PictureLoader.Builder()
                     .request(areaImage)
@@ -51,11 +44,11 @@ class VpnGroup : ItemExpand, ItemHover, ItemPosition, ItemBind {
                     else
                         R.drawable.switch_node_expand
                 )
-                if (itemExpand) binding.vLine.visible() else binding.vLine.gone()
+                // if (itemExpand) binding.vLine.visible() else binding.vLine.gone()
             }
             // 显示 VPN 自动连接选项
             else -> {
-                binding.vLine.gone()
+                // binding.vLine.gone()
                 binding.llContent.visible()
                 binding.tvGroupName.text =
                     binding.root.context.string(R.string.common_auto_select)

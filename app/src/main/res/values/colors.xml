@@ -3,6 +3,7 @@
     <color name="app_background">#FF10111E</color>
     <color name="transparent">#00000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="white_5">#0DFFFFFF</color>
     <color name="white_10">#1AFFFFFF</color>
     <color name="white_35">#59FFFFFF</color>
     <color name="white_65">#A6FFFFFF</color>
@@ -17,6 +18,7 @@
     <color name="FF666666">#FF666666</color>
     <color name="FF2E3134">#FF2E3134</color>
     <color name="FF31FFDA">#FF31FFDA</color>
+    <color name="FFFFA41D">#FFFFA41D</color>
 
     <color name="white_70">#4DFFFFFF</color>
     <color name="FF0DC2FF">#FF0DC2FF</color>
