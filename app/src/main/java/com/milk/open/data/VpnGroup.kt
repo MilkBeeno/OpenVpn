@@ -38,6 +38,7 @@ class VpnGroup : ItemExpand, ItemHover, ItemPosition, ItemBind {
                     .plus("(")
                     .plus(itemSublist?.size.toString())
                     .plus(")")
+                binding.ivGroupExpand.visible()
                 binding.ivGroupExpand.setImageResource(
                     if (itemExpand)
                         R.drawable.switch_node_packup
