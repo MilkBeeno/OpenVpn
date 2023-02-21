@@ -33,12 +33,12 @@ class SwitchVpnActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        initializeView()
-        loadNativeAd()
-        initializeData()
+        initView()
+        initAd()
+        initData()
     }
 
-    private fun initializeView() {
+    private fun initView() {
         immersiveStatusBar(false)
         binding.flHeaderToolbar.statusBarPadding()
         switchNodeViewModel.currentNodeId = currentNodeId
@@ -102,7 +102,7 @@ class SwitchVpnActivity : BaseActivity() {
         }
     }
 
-    private fun loadNativeAd() {
+    private fun initAd() {
         if (AppRepo.showSwitchNativeAd) {
             AnalyzeManager.logEvent(AnalyzeKey.Make_an_ad_request_1)
             binding.nativeView.setLoadFailureRequest {
@@ -119,7 +119,7 @@ class SwitchVpnActivity : BaseActivity() {
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    private fun initializeData() {
+    private fun initData() {
         switchNodeViewModel.getVpnListInfo()
     }
 

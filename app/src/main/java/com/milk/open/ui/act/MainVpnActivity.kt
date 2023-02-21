@@ -42,12 +42,12 @@ class MainVpnActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         AnalyzeManager.logEvent(AnalyzeKey.ENTER_MAIN_PAGE)
-        initializeView()
-        loadNativeAd()
-        initializeObserver()
+        initView()
+        initAd()
+        initObserver()
     }
 
-    private fun initializeView() {
+    private fun initView() {
         immersiveStatusBar(false)
         binding.flHeaderToolbar.statusBarPadding()
         binding.ivMenu.setOnClickListener(this)
@@ -97,7 +97,7 @@ class MainVpnActivity : BaseActivity() {
         }
     }
 
-    private fun loadNativeAd() {
+    private fun initAd() {
         if (AppRepo.showMainNativeAd) {
             AnalyzeManager.logEvent(AnalyzeKey.Make_an_ad_request)
             binding.nativeView.setLoadFailureRequest {
@@ -113,7 +113,7 @@ class MainVpnActivity : BaseActivity() {
         }
     }
 
-    private fun initializeObserver() {
+    private fun initObserver() {
         LiveEventBus.get<ArrayList<String>>(EventKey.SWITCH_VPN_NODE)
             .observe(this) {
                 vpnViewModel.vpnNodeId = it[0].toLong()
@@ -270,7 +270,7 @@ class MainVpnActivity : BaseActivity() {
         }
     }
 
-    override fun onInterceptKeyDownEvent() = true
+    override fun isInterceptKeyDownEvent() = true
 
     companion object {
         fun create(context: Context) {

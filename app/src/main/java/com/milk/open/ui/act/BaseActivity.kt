@@ -28,10 +28,10 @@ abstract class BaseActivity : FragmentActivity(), View.OnClickListener {
         return super.getResources()
     }
 
-    protected open fun onInterceptKeyDownEvent() = false
+    protected open fun isInterceptKeyDownEvent() = false
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
-        if (keyCode == KeyEvent.KEYCODE_BACK && onInterceptKeyDownEvent()) {
+        if (keyCode == KeyEvent.KEYCODE_BACK && isInterceptKeyDownEvent()) {
             moveTaskToBack(true)
             return false
         }

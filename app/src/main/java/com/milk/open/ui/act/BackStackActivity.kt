@@ -20,16 +20,16 @@ class BackStackActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        initializeView()
-        loadAppOpenAd()
+        initView()
+        initAd()
     }
 
-    private fun initializeView() {
+    private fun initView() {
         immersiveStatusBar(false)
         binding.progressBar.max = 12000
     }
 
-    private fun loadAppOpenAd() {
+    private fun initAd() {
         CustomTimer.Builder()
             .setCountDownInterval(10)
             .setMillisInFuture(12000)
@@ -86,7 +86,7 @@ class BackStackActivity : BaseActivity() {
         finish()
     }
 
-    override fun onInterceptKeyDownEvent(): Boolean = true
+    override fun isInterceptKeyDownEvent(): Boolean = true
 
     companion object {
         private const val FROM_START_PAGE = "FROM_START_PAGE"

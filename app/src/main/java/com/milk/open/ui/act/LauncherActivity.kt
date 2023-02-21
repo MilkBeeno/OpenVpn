@@ -31,8 +31,8 @@ class LauncherActivity : BaseActivity() {
         if (isFirst) {
             binding.root.visible()
             KvManger.put(KvKey.FIRST_ENTER, false)
-            initializeView()
-            openNotification()
+            initView()
+            initNotification()
         } else {
             AnalyzeManager.logEvent(AnalyzeKey.ENTER_THE_STARTUP_PAGE)
             binding.root.gone()
@@ -42,7 +42,7 @@ class LauncherActivity : BaseActivity() {
         // getHasKey()
     }
 
-    private fun initializeView() {
+    private fun initView() {
         immersiveStatusBar(false)
         binding.ivSelect.isSelected = true
         binding.ivSelect.setOnClickListener(this)
@@ -56,7 +56,7 @@ class LauncherActivity : BaseActivity() {
         )
     }
 
-    private fun openNotification() {
+    private fun initNotification() {
         val enable = NotificationManagerCompat.from(this).areNotificationsEnabled()
         if (!enable) {
             openNotificationDialog.show()

@@ -23,10 +23,10 @@ class ResultPageActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        initializeView()
+        initView()
     }
 
-    private fun initializeView() {
+    private fun initView() {
         immersiveStatusBar()
         binding.ivBack.statusBarPadding()
         binding.ivBack.setOnClickListener { finish() }
