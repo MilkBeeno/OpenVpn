@@ -8,7 +8,7 @@ class AppOpenAdCode : AdCode {
     }
 
     override fun release(): String {
-        return "ca-app-pub-9835209825468303/3578335083"
+        return "ca-app-pub-4684374725464850/3874546658"
     }
 
     companion object {

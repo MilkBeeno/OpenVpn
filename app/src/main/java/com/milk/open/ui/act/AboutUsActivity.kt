@@ -27,7 +27,7 @@ class AboutUsActivity : BaseActivity() {
         when (view) {
             binding.ivBack -> finish()
             binding.llPrivacy -> {
-                val url = "https://res.duoglobalmaster.com/privacy.html"
+                val url = "https://res.openvpnsafeconnect.com/PrivacyPolicy.html"
                 WebViewActivity.create(this, url)
             }
         }

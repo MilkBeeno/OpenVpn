@@ -8,7 +8,7 @@ class InterstitialAdCode : AdCode {
     }
 
     override fun release(): String {
-        return "ca-app-pub-9835209825468303/3490705171"
+        return "ca-app-pub-4684374725464850/3438883642"
     }
 
     companion object {

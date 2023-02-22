@@ -50,7 +50,7 @@ class LauncherActivity : BaseActivity() {
         binding.tvPrivacy.setSpannableClick(
             Pair(string(R.string.launch_privacy),
                 colorClickableSpan(color(R.color.FF0D5EFF)) {
-                    val url = "https://res.duoglobalmaster.com/privacy.html"
+                    val url = "https://res.openvpnsafeconnect.com/PrivacyPolicy.html"
                     WebViewActivity.create(this, url)
                 })
         )

@@ -1,8 +1,8 @@
 <resources>
     <!-- Facebook 推广相关 -->
-    <string name="facebook_app_id">911156690023455</string>
-    <string name="facebook_client_token">e1cad8f2a28ef81b3d92aaf4c2ec7a07</string>
-    <string name="fb_login_protocol_scheme">fb911156690023455</string>
+    <string name="facebook_app_id">1146143826079394</string>
+    <string name="facebook_client_token">cfc29b098eec8ace370f6ec28a53766d</string>
+    <string name="fb_login_protocol_scheme">fb1146143826079394</string>
     <string name="app_name">Open VPN - SafeConnect</string>
     <!--启动页面翻译-->
     <string name="launch_tip"><![CDATA[FREE & FAST]]></string>
