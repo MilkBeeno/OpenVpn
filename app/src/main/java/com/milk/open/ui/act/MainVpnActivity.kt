@@ -195,26 +195,31 @@ class MainVpnActivity : BaseActivity() {
         }
         when {
             isConnected && AppRepo.showConnectedInsertAd -> {
-                showInsertAd(true)
+                vpnViewModel.loadInterstitialAd(this) {
+                    showInsertAd(true)
+                }
             }
             !isConnected && AppRepo.showDisconnectInsertAd -> {
-                showInsertAd(false)
+                vpnViewModel.loadInterstitialAd(this) {
+                    showInsertAd(false)
+                }
+            }
+            else -> {
+                showInsertAd(isConnected)
             }
         }
     }
 
     private fun showInsertAd(isConnected: Boolean) {
-        vpnViewModel.loadInterstitialAd(this) {
-            connectingDialog.dismiss()
-            disconnectDialog.dismiss()
-            ResultPageActivity.create(
-                this,
-                isConnected,
-                vpnViewModel.vpnImageUrl,
-                vpnViewModel.vpnName,
-                vpnViewModel.vpnPing
-            )
-        }
+        connectingDialog.dismiss()
+        disconnectDialog.dismiss()
+        ResultPageActivity.create(
+            this,
+            isConnected,
+            vpnViewModel.vpnImageUrl,
+            vpnViewModel.vpnName,
+            vpnViewModel.vpnPing
+        )
     }
 
     private fun updateConnectInfo() {
