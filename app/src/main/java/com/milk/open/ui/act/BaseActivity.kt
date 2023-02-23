@@ -1,12 +1,9 @@
 package com.milk.open.ui.act
 
-import android.content.res.Resources
-import android.os.Looper
 import android.view.KeyEvent
 import android.view.View
 import androidx.fragment.app.FragmentActivity
 import com.milk.simple.listener.MultipleClickListener
-import me.jessyan.autosize.AutoSizeCompat
 
 abstract class BaseActivity : FragmentActivity(), View.OnClickListener {
 
@@ -21,12 +18,12 @@ abstract class BaseActivity : FragmentActivity(), View.OnClickListener {
 
     protected open fun onMultipleClick(view: View) = Unit
 
-    override fun getResources(): Resources {
-        if (Looper.myLooper() == Looper.getMainLooper()) {
-            AutoSizeCompat.autoConvertDensityOfGlobal(super.getResources())
-        }
-        return super.getResources()
-    }
+//    override fun getResources(): Resources {
+//        if (Looper.myLooper() == Looper.getMainLooper()) {
+//            AutoSizeCompat.autoConvertDensityOfGlobal(super.getResources())
+//        }
+//        return super.getResources()
+//    }
 
     protected open fun isInterceptKeyDownEvent() = false
 
