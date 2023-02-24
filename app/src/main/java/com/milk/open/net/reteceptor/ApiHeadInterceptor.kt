@@ -22,9 +22,14 @@ class ApiHeadInterceptor : Interceptor {
             val sortParams = sortParam(params)
             finalUrl = finalUrl.plus(sortParams)
             requestBuilder.url(finalUrl)
+            val packageName = if (BuildConfig.DEBUG) {
+                "com.milk.openvpn.safeconnect"
+            } else {
+                "com.milk.simple.openvpn.safeconnect"
+            }
             headerBuilder
                 .add("H007", "1")
-                .add("H006", "com.milk.simplesmart")
+                .add("H006", packageName)
                 .add("Content-Type", "application/json")
         }
         requestBuilder.headers(headerBuilder.build())
