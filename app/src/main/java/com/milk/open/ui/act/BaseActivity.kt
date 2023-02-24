@@ -18,13 +18,6 @@ abstract class BaseActivity : FragmentActivity(), View.OnClickListener {
 
     protected open fun onMultipleClick(view: View) = Unit
 
-//    override fun getResources(): Resources {
-//        if (Looper.myLooper() == Looper.getMainLooper()) {
-//            AutoSizeCompat.autoConvertDensityOfGlobal(super.getResources())
-//        }
-//        return super.getResources()
-//    }
-
     protected open fun isInterceptKeyDownEvent() = false
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
