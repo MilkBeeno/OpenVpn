@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:234760899922:android:dfc532b7e2e40c3afa3e8b",
         "android_client_info": {
-          "package_name": "com.milk.openvpn.safeconnect"
+          "package_name": "com.milk.simple.openvpn.safeconnect"
         }
       },
       "oauth_client": [

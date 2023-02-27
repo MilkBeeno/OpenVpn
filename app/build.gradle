@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         // 测试服包名 com.milk.openvpn.safeconnect 正式服包名 com.milk.simple.openvpn.safeconnect
-        applicationId "com.milk.openvpn.safeconnect"
+        applicationId "com.milk.simple.openvpn.safeconnect"
         minSdk 21
         targetSdk 32
         versionCode 100
